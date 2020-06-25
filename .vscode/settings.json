@@ -7,5 +7,7 @@
     "python.autoComplete.typeshedPaths":  [".micropy\\BradenM-micropy-stubs-9569403\\frozen", ".micropy\\BradenM-micropy-stubs-27ee48a\\frozen", ".micropy\\BradenM-micropy-stubs-9569403\\stubs", ".micropy\\PROJETO"],
     "python.analysis.typeshedPaths":  [".micropy\\BradenM-micropy-stubs-9569403\\frozen", ".micropy\\BradenM-micropy-stubs-27ee48a\\frozen", ".micropy\\BradenM-micropy-stubs-9569403\\stubs", ".micropy\\PROJETO"],
 
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "python.languageServer": "Microsoft",
+    "python.pythonPath": "C:\\Users\\joni2\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
 }
