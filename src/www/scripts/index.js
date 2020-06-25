@@ -38,7 +38,7 @@ function drawChart(evt) {
     var lista = JSON.parse(evt).lista
     var data = google.visualization.arrayToDataTable(lista);
     var options = {
-        title: 'Voltagem captada pelo painel solar em função do tempo',
+        title: 'Voltagem captada pelo painel solar em funcao do tempo',
         curveType: 'function',
         legend: { position: 'bottom' }
     };
