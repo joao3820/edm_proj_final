@@ -6,7 +6,7 @@ from api import getTime
 
 adc = ADC(Pin(32))
 but = Pin(23, Pin.IN, Pin.PULL_UP)
-Readings = []
+Readings = [["Time","Voltage"]]
 adc.atten(ADC.ATTN_11DB)
 adc.width(ADC.WIDTH_12BIT)
 

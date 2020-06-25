@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ESP32</title>
+        <title>Button LED webpage</title>
     </head>
     <script language="javascript">
         function init() {
@@ -27,6 +27,7 @@
         }
         function onMessage(evt) {
             logMsg(evt.data);
+      document.getElementById("button").innerHTML = evt.data;
         }
         function onError(evt) {
             logMsg('ERROR: ' + evt.data);
@@ -43,7 +44,7 @@
         window.addEventListener("load", init, false);
     </script>
     <body>
-      <h1>Página Web</h1>
+      <h1>Button LED webpage</h1>
       <input type="checkbox" id="led"  onclick="ledClick()">LED<br>
       <p id="button">Button Off</p>
       <textarea id="log" rows="10" cols="100"></textarea>
