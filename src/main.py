@@ -5,9 +5,12 @@ from api import getTime
 from ujson import dumps
 from button import Button
 
-adc = ADC(Pin(32))
+adc = ADC(Pin(33))
 adc.atten(ADC.ATTN_11DB)
 adc.width(ADC.WIDTH_12BIT)
+tempo = ''
+Volts = 0
+
 
 myWebSockets = None
 
@@ -16,11 +19,16 @@ def OnWebSocketClosed(webSocket):
     myWebSockets = None
 
 def OnWebSocketAccepted(microWebSrv2, webSocket):
-    global myWebSockets
+    global myWebSockets, Volts, tempo, graphdata
     if myWebSockets is None:
-      print('WebSocket from {0}'.format(webSocket.Request.UserAddress))
-      myWebSockets = webSocket
-      myWebSockets.OnClosed = OnWebSocketClosed
+        print('WebSocket from {0}'.format(webSocket.Request.UserAddress))
+        myWebSockets = webSocket
+        myWebSockets.OnClosed = OnWebSocketClosed
+
+        msg = "O ultimo item recebido foi " + str(Volts) + " na hora " + str(tempo)
+        if myWebSockets is not None:
+            myWebSockets.SendTextMessage(msg)
+            myWebSockets.SendTextMessage(dumps(graphData.__dict__))
 
 mws2 = MicroWebSrv2()
 wsMod = MicroWebSrv2.LoadModule('WebSockets')
@@ -32,6 +40,7 @@ mws2.StartManaged()
 
 def sendADC(state):
     """Enviar valores ADC para a página web"""
+    global Volts, tempo, graphData
     value = 0
     for n in range(16):
         value = value + adc.read()
@@ -61,10 +70,11 @@ def loop():
     global last
     now = ticks_ms()
     but.proc()
-    if now - last >= 60000:
+    if now - last >= 600000:
         last = now
         sendADC(True)
-
+        
+sendADC(True)
 try:
     last = ticks_ms()
     while mws2.IsRunning:
