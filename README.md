@@ -13,15 +13,15 @@ Utilizamos o módulo "network"[3] para conectar o esp32 à internet e o módulo 
 Para representar graficamente os dados recebidos pelo adc em função do tempo necessitamos de informação da hora a que a medição foi feita. Para tal, utilizamos um api que fazendo um request retorna a hora atual e completamos assim os nossos dados[5]. 
 Para o gráfico em si, utilizamos o "google charts"[6] e javascript. Assim, acedendo ao websocket podemos observar graficamente a intensidade solar captada pela célula ao longo do tempo. As medições são feitas de 10 em 10 minutos e temos como exemplo gráficos obtidos de manhã e ao fim da tarde:
 
-<img src="./images/Morning-27.jpg" width="500">
+<img src="./images/Morning-27.jpg" width="450">
 
-<img src="./images/Night-27.jpg" width="405">
+<img src="./images/Night-27.jpg" width="365">
 
 ## LED RGB 
 Implementamos também um LED RGB como indicador em tempo real da tensão na célula fotovoltaica. Este apresenta uma cor verde se a tensão estiver próxima dos 2.5V e vermelha se estiver perto de 0V. Em valores intermédios apresenta uma cor amarelada, sendo esta é uma combinação da intensidade do díodo vermelho com a do verde. Utilizamos o módulo "PWM"[7] para controlar a intensidade de cada um dos díodos.
 Podemos observar o seu funcionamento no seguinte vídeo:
 
-![](https://im4.ezgif.com/tmp/ezgif-4-f2b761832a7f.gif)
+![GIF](https://im4.ezgif.com/tmp/ezgif-4-f2b761832a7f.gif)
 
 Como podemos ver, quando há luz incidente na célula o led RGB apresenta uma cor verde, quando a luz é retirada, o led transita para o vermelho.
 
