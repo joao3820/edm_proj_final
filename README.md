@@ -3,7 +3,7 @@
 Neste projeto criamos um sistema baseado no microcontrolador esp32 pico kit que nos permite adquirir tensão de uma pequena célula fotovoltaica proveniente de um candeeiro de jardim. Este é capaz de criar um websocket onde podemos ver uma representação gráfica de pontos adquiridos de 10 em 10 minutos. Para além disto, o microcontrolador também está conectado um led RGB cuja intensidade dos díodos vermelho e verde nos indica a tensão em tempo real.
 ## Arquitetura 
 O nosso sistema é composto pelo esp32, um led RGB e a célula fotovoltaica dispostos da seguinte forma: 
-<img src="./images/diagram.png" width="500">
+<img src="./images/Diagram.png" width="500">
 
 ## ADC
 Verificamos utilizando um multímetro que as tensões e correntes rondam os 2.5V e 15μA. Sabemos que estes valores são seguros para utilizar no adc da esp32[1], logo prosseguimos com o projeto. Implementamos o módulo "ADC" do micropython[2] e, como a tensão máxima ronda os 2.5V, escolhemos a atenuação de 11dB que nos permite obter valores até 3.6V. Para além disso fizemos leituras de 12bits para obter uma resolução maior.
