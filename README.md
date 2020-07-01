@@ -19,7 +19,7 @@ Para o gráfico em si, utilizamos o "google charts"[6] e javascript. Assim, aced
 Implementamos também um LED RGB como indicador em tempo real da tensão na célula fotovoltaica. Este apresenta uma cor verde se a tensão estiver próxima dos 2.5V e vermelha se estiver perto de 0V. Em valores intermédios apresenta uma cor amarelada, sendo esta é uma combinação da intensidade do díodo vermelho com a do verde. Utilizamos o módulo "PWM"[7] para controlar a intensidade de cada um dos díodos.
 Podemos observar o seu funcionamento no seguinte vídeo:
 
-<img src="https://im4.ezgif.com/tmp/ezgif-4-f2b761832a7f.gif"/>
+<img src="./images/LED.gif">
 
 Como podemos ver, quando há luz incidente na célula o led RGB apresenta uma cor verde, quando a luz é retirada, o led transita para o vermelho.
 
