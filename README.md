@@ -1,6 +1,6 @@
 # Aquisição de dados de uma célula fotovoltaica
 ## Sumário
-Neste projeto criamos um sistema baseado no microcontrolador esp32 pico kit que nos permite adquirir tensão de uma pequena célula fotovoltaica proveniente de um candeeiro de jardim. Este é capaz de criar um websocket onde podemos ver uma representação gráfica de pontos adquiridos de 10 em 10 minutos. Para além disto, o microcontrolador também está conectado um led RGB cuja intensidade dos díodos vermelho e verde nos indica a tensão em tempo real.
+Neste projeto criamos um sistema baseado no microcontrolador esp32 pico kit que nos permite adquirir tensão de uma pequena célula fotovoltaica proveniente de um candeeiro de jardim. Este é capaz de criar um websocket onde podemos ver uma representação gráfica de pontos adquiridos de 10 em 10 minutos. Para além disto, o microcontrolador também está conectado a um led RGB cuja intensidade dos díodos vermelho e verde nos indica a tensão em tempo real.
 ## Arquitetura 
 O nosso sistema é composto pelo esp32, um led RGB e a célula fotovoltaica dispostos da seguinte forma: 
 <img src="./images/Diagram.png" width="500">
