@@ -4,13 +4,15 @@ from utime import ticks_ms
 from api import getTime
 from ujson import dumps
 from button import Button
+from pwm import Led 
 
 adc = ADC(Pin(33))
+rLed = Led(21)
+gLed = Led(19)
 adc.atten(ADC.ATTN_11DB)
 adc.width(ADC.WIDTH_12BIT)
 tempo = ''
 Volts = 0
-
 
 myWebSockets = None
 
@@ -54,6 +56,10 @@ def sendADC(state):
         myWebSockets.SendTextMessage(msg)
         myWebSockets.SendTextMessage(dumps(graphData.__dict__))
 
+def sendLed():
+    rLed.duty(2.5*4095/3.3 - adc.read())
+    gLed.duty(adc.read())
+
 but = Button(23, callback=sendADC)
 
 class graph():
@@ -73,6 +79,7 @@ def loop():
     if now - last >= 600000:
         last = now
         sendADC(True)
+    sendLed()
         
 sendADC(True)
 try:
